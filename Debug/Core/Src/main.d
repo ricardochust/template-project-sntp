@@ -42,39 +42,39 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
- C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/ST-LIB.hpp \
- C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/HALAL.hpp \
- C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Services/DigitalOutputservice/DigitalOutputservice.hpp \
- C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Models/PinModel/Pin.hpp \
- C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/C++Utilities/CppUtils.hpp \
- C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Services/DigitalInputService/DigitalInputService.hpp \
- C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Services/Flash/Flash.hpp \
- C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Services/Flash/FlashTests/Flash_Test.hpp \
- C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Services/ADC/ADC.hpp \
- C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Models/LowPowerTimer/LowPowerTimer.hpp \
- C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Services/PWMservice/PWMservice.hpp \
- C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Models/TimerPeripheral/TimerPeripheral.hpp \
- C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Services/Time/Time.hpp \
- C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Services/InputCapture/InputCapture.hpp \
- C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Services/Encoder/Encoder.hpp \
- C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Services/EXTI/EXTI.hpp \
- C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Services/Communication/SPI/SPI.hpp \
- C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Models/Packets/RawPacket.hpp \
- C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Services/Communication/UART/UART.hpp \
- C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/UDP/DatagramSocket.hpp \
- C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/TCP/ServerSocket.hpp \
- C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/TCP/Socket.hpp \
- C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/Ethernet.hpp \
- C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/ST-LIB_LOW/ST-LIB_LOW.hpp \
- C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/ST-LIB_LOW/Clocks/Counter.hpp \
- C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/ST-LIB_LOW/Clocks/Stopwatch.hpp \
- C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/ST-LIB_LOW/StateMachine/StateMachine.hpp \
- C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/ST-LIB_LOW/Actuator/PWM/PWM.hpp \
- C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/ST-LIB_LOW/Actuator/DigitalOutput/DigitalOutput.hpp \
- C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/ST-LIB_LOW/Actuator/HalfBridge/HalfBridge.hpp \
- C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/ST-LIB_HIGH/ST-LIB_HIGH.hpp \
- C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/ST-LIB_HIGH/Protections/Protection.hpp \
- C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/ST-LIB_HIGH/Protections/ProtectionManager.hpp
+ /home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/ST-LIB.hpp \
+ /home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/HALAL.hpp \
+ /home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Services/DigitalOutputService/DigitalOutputService.hpp \
+ /home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Models/PinModel/Pin.hpp \
+ /home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/C++Utilities/CppUtils.hpp \
+ /home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Services/DigitalInputService/DigitalInputService.hpp \
+ /home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Services/Flash/Flash.hpp \
+ /home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Services/Flash/FlashTests/Flash_Test.hpp \
+ /home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Services/ADC/ADC.hpp \
+ /home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Models/LowPowerTimer/LowPowerTimer.hpp \
+ /home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Services/PWMService/PWMService.hpp \
+ /home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Models/TimerPeripheral/TimerPeripheral.hpp \
+ /home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Services/Time/Time.hpp \
+ /home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Services/InputCapture/InputCapture.hpp \
+ /home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Services/Encoder/Encoder.hpp \
+ /home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Services/EXTI/EXTI.hpp \
+ /home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Services/Communication/SPI/SPI.hpp \
+ /home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Models/Packets/RawPacket.hpp \
+ /home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Services/Communication/UART/UART.hpp \
+ /home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/UDP/DatagramSocket.hpp \
+ /home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/TCP/ServerSocket.hpp \
+ /home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/TCP/Socket.hpp \
+ /home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/Ethernet.hpp \
+ /home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/ST-LIB_LOW/ST-LIB_LOW.hpp \
+ /home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/ST-LIB_LOW/Clocks/Counter.hpp \
+ /home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/ST-LIB_LOW/Clocks/Stopwatch.hpp \
+ /home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/ST-LIB_LOW/StateMachine/StateMachine.hpp \
+ /home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/ST-LIB_LOW/Actuator/PWM/PWM.hpp \
+ /home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/ST-LIB_LOW/Actuator/DigitalOutput/DigitalOutput.hpp \
+ /home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/ST-LIB_LOW/Actuator/HalfBridge/HalfBridge.hpp \
+ /home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/ST-LIB_HIGH/ST-LIB_HIGH.hpp \
+ /home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/ST-LIB_HIGH/Protections/Protection.hpp \
+ /home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/ST-LIB_HIGH/Protections/ProtectionManager.hpp
 ../Core/Inc/main.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../Core/Inc/stm32h7xx_hal_conf.h:
@@ -119,36 +119,36 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h:
-C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/ST-LIB.hpp:
-C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/HALAL.hpp:
-C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Services/DigitalOutputservice/DigitalOutputservice.hpp:
-C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Models/PinModel/Pin.hpp:
-C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/C++Utilities/CppUtils.hpp:
-C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Services/DigitalInputService/DigitalInputService.hpp:
-C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Services/Flash/Flash.hpp:
-C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Services/Flash/FlashTests/Flash_Test.hpp:
-C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Services/ADC/ADC.hpp:
-C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Models/LowPowerTimer/LowPowerTimer.hpp:
-C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Services/PWMservice/PWMservice.hpp:
-C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Models/TimerPeripheral/TimerPeripheral.hpp:
-C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Services/Time/Time.hpp:
-C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Services/InputCapture/InputCapture.hpp:
-C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Services/Encoder/Encoder.hpp:
-C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Services/EXTI/EXTI.hpp:
-C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Services/Communication/SPI/SPI.hpp:
-C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Models/Packets/RawPacket.hpp:
-C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Services/Communication/UART/UART.hpp:
-C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/UDP/DatagramSocket.hpp:
-C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/TCP/ServerSocket.hpp:
-C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/TCP/Socket.hpp:
-C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/Ethernet.hpp:
-C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/ST-LIB_LOW/ST-LIB_LOW.hpp:
-C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/ST-LIB_LOW/Clocks/Counter.hpp:
-C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/ST-LIB_LOW/Clocks/Stopwatch.hpp:
-C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/ST-LIB_LOW/StateMachine/StateMachine.hpp:
-C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/ST-LIB_LOW/Actuator/PWM/PWM.hpp:
-C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/ST-LIB_LOW/Actuator/DigitalOutput/DigitalOutput.hpp:
-C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/ST-LIB_LOW/Actuator/HalfBridge/HalfBridge.hpp:
-C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/ST-LIB_HIGH/ST-LIB_HIGH.hpp:
-C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/ST-LIB_HIGH/Protections/Protection.hpp:
-C:/Users/aleja/Proyectos/Hyper-H8/ST-LIB/Inc/ST-LIB_HIGH/Protections/ProtectionManager.hpp:
+/home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/ST-LIB.hpp:
+/home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/HALAL.hpp:
+/home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Services/DigitalOutputService/DigitalOutputService.hpp:
+/home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Models/PinModel/Pin.hpp:
+/home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/C++Utilities/CppUtils.hpp:
+/home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Services/DigitalInputService/DigitalInputService.hpp:
+/home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Services/Flash/Flash.hpp:
+/home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Services/Flash/FlashTests/Flash_Test.hpp:
+/home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Services/ADC/ADC.hpp:
+/home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Models/LowPowerTimer/LowPowerTimer.hpp:
+/home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Services/PWMService/PWMService.hpp:
+/home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Models/TimerPeripheral/TimerPeripheral.hpp:
+/home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Services/Time/Time.hpp:
+/home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Services/InputCapture/InputCapture.hpp:
+/home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Services/Encoder/Encoder.hpp:
+/home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Services/EXTI/EXTI.hpp:
+/home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Services/Communication/SPI/SPI.hpp:
+/home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Models/Packets/RawPacket.hpp:
+/home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Services/Communication/UART/UART.hpp:
+/home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/UDP/DatagramSocket.hpp:
+/home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/TCP/ServerSocket.hpp:
+/home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/TCP/Socket.hpp:
+/home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/Ethernet.hpp:
+/home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/ST-LIB_LOW/ST-LIB_LOW.hpp:
+/home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/ST-LIB_LOW/Clocks/Counter.hpp:
+/home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/ST-LIB_LOW/Clocks/Stopwatch.hpp:
+/home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/ST-LIB_LOW/StateMachine/StateMachine.hpp:
+/home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/ST-LIB_LOW/Actuator/PWM/PWM.hpp:
+/home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/ST-LIB_LOW/Actuator/DigitalOutput/DigitalOutput.hpp:
+/home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/ST-LIB_LOW/Actuator/HalfBridge/HalfBridge.hpp:
+/home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/ST-LIB_HIGH/ST-LIB_HIGH.hpp:
+/home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/ST-LIB_HIGH/Protections/Protection.hpp:
+/home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Inc/ST-LIB_HIGH/Protections/ProtectionManager.hpp:

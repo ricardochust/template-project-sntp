@@ -49,34 +49,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := SPI_ST-LIB
+BUILD_ARTIFACT_NAME := template-project
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-SPI_ST-LIB.elf \
+template-project.elf \
 
 MAP_FILES += \
-SPI_ST-LIB.map \
+template-project.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-SPI_ST-LIB.list \
+template-project.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: SPI_ST-LIB.elf secondary-outputs
+main-build: template-project.elf secondary-outputs
 
 # Tool invocations
-SPI_ST-LIB.elf SPI_ST-LIB.map: $(OBJS) $(USER_OBJS) C:\Users\aleja\Proyectos\Hyper-H8\SPI_ST-LIB\STM32H723ZGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "SPI_ST-LIB.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\Users\aleja\Proyectos\Hyper-H8\SPI_ST-LIB\STM32H723ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="SPI_ST-LIB.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+template-project.elf template-project.map: $(OBJS) $(USER_OBJS) /home/dgoncas/Desktop/Firmware_workspace/template-project/STM32H723ZGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-g++ -o "template-project.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"/home/dgoncas/Desktop/Firmware_workspace/template-project/STM32H723ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="template-project.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -85,14 +85,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-SPI_ST-LIB.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "SPI_ST-LIB.list"
+template-project.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "template-project.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) SPI_ST-LIB.elf SPI_ST-LIB.list SPI_ST-LIB.map default.size.stdout
+	-$(RM) default.size.stdout template-project.elf template-project.list template-project.map
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)

@@ -153,7 +153,7 @@ void Error_Handler(void);
 #define PWM_OUTC8_GPIO_Port GPIOC
 #define PWM_INC9_Pin GPIO_PIN_9
 #define PWM_INC9_GPIO_Port GPIOC
-#define SPI3_SS_Pin GPIO_PIN_0
+#define SPI3_SS_Pin GPIO_PIN_3
 #define SPI3_SS_GPIO_Port GPIOD
 #define PWM_OUTB4_Pin GPIO_PIN_4
 #define PWM_OUTB4_GPIO_Port GPIOB
