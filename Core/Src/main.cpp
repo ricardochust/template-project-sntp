@@ -21,9 +21,6 @@ int main(void)
   SystemClock_Config();
   PeriphCommonClock_Config();
 
-  SPI::start();
-  UART::start();
-
   while (1) {}
 }
 
