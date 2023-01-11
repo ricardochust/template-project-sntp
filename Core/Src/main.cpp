@@ -7,14 +7,28 @@ void PeriphCommonClock_Config(void);
 DMA_HandleTypeDef hdma_adc1;
 DMA_HandleTypeDef hdma_adc2;
 DMA_HandleTypeDef hdma_adc3;
+ADC_HandleTypeDef hadc1;
+ADC_HandleTypeDef hadc2;
+ADC_HandleTypeDef hadc3;
 LPTIM_HandleTypeDef hlptim1;
 LPTIM_HandleTypeDef hlptim2;
 LPTIM_HandleTypeDef hlptim3;
+TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim2;
+TIM_HandleTypeDef htim3;
+TIM_HandleTypeDef htim4;
 TIM_HandleTypeDef htim5;
 TIM_HandleTypeDef htim6;
 TIM_HandleTypeDef htim8;
+TIM_HandleTypeDef htim12;
+TIM_HandleTypeDef htim16;
+TIM_HandleTypeDef htim17;
+TIM_HandleTypeDef htim15;
+TIM_HandleTypeDef htim23;
 TIM_HandleTypeDef htim24;
+UART_HandleTypeDef huart1;
+UART_HandleTypeDef huart2;
+SPI_HandleTypeDef hspi3;
 
 int main(void)
 {
