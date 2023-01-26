@@ -1,12 +1,36 @@
 
-#include "ST-LIB.hpp"
+DMA_HandleTypeDef hdma_adc1;
+DMA_HandleTypeDef hdma_adc2;
+DMA_HandleTypeDef hdma_adc3;
+ADC_HandleTypeDef hadc1;
+ADC_HandleTypeDef hadc2;
+ADC_HandleTypeDef hadc3;
+LPTIM_HandleTypeDef hlptim1;
+LPTIM_HandleTypeDef hlptim2;
+LPTIM_HandleTypeDef hlptim3;
+TIM_HandleTypeDef htim1;
+TIM_HandleTypeDef htim2;
+TIM_HandleTypeDef htim3;
+TIM_HandleTypeDef htim4;
+TIM_HandleTypeDef htim5;
+TIM_HandleTypeDef htim6;
+TIM_HandleTypeDef htim8;
+TIM_HandleTypeDef htim12;
+TIM_HandleTypeDef htim16;
+TIM_HandleTypeDef htim17;
+TIM_HandleTypeDef htim15;
+TIM_HandleTypeDef htim23;
+TIM_HandleTypeDef htim24;
+UART_HandleTypeDef huart1;
+UART_HandleTypeDef huart2;
+UART_HandleTypeDef huart3;
+SPI_HandleTypeDef hspi3;
+
 
 /************************************************
  *              Communication-SPI
  ***********************************************/
 #ifdef HAL_SPI_MODULE_ENABLED
-extern SPI_HandleTypeDef hspi3;
-
 
 SPI::Instance SPI::instance3 = { .SCK = &PC10, .MOSI = &PC12, .MISO = &PC11, .SS = &PD0,
                                  .hspi = &hspi3, .instance = SPI3,
@@ -23,8 +47,6 @@ unordered_map<SPI::Peripheral, SPI::Instance*> SPI::available_spi = {
  *              Communication-UART
  ***********************************************/
 #ifdef HAL_UART_MODULE_ENABLED
-extern UART_HandleTypeDef huart1;
-extern UART_HandleTypeDef huart2;
 
 UART::Instance UART::instance1 = { .TX = PA9, .RX = PA10, .huart = &huart1,
 								   .instance = USART1, .baud_rate = 115200, .word_length = UART_WORDLENGTH_8B,
@@ -35,13 +57,20 @@ UART::Instance UART::instance2 = { .TX = PD5, .RX = PD6, .huart = &huart2,
 								   .instance = USART2, .baud_rate = 115200, .word_length = UART_WORDLENGTH_8B,
                                };
 
+UART::Instance UART::instance3 = { .TX = PD8, .RX = PD9, .huart = &huart3,
+								   .instance = USART3, .baud_rate = 115200, .word_length = UART_WORDLENGTH_8B,
+                               };
+
 
 UART::Peripheral UART::uart1 = UART::Peripheral::peripheral1;
 UART::Peripheral UART::uart2 = UART::Peripheral::peripheral2;
+UART::Peripheral UART::uart3 = UART::Peripheral::peripheral3;
+
 
 unordered_map<UART::Peripheral, UART::Instance*> UART::available_uarts = {
 	{UART::uart1, &UART::instance1},
-	{UART::uart2, &UART::instance2}
+	{UART::uart2, &UART::instance2},
+	{UART::uart3, &UART::instance3}
 };
 
 uint8_t UART::printf_uart = 0;
@@ -57,8 +86,6 @@ bool UART::printf_ready = false;
  ***********************************************/
 #ifdef HAL_TIM_MODULE_ENABLED
 
-extern TIM_HandleTypeDef htim8;
-
 TimerPeripheral encoder_timer = TimerPeripheral(&htim8, {TIM8, 0, 65535});
 
 map<pair<Pin, Pin>, TimerPeripheral*> Encoder::pin_timer_map = {
@@ -70,16 +97,6 @@ map<pair<Pin, Pin>, TimerPeripheral*> Encoder::pin_timer_map = {
  *                     Timer
  ***********************************************/
 #ifdef HAL_TIM_MODULE_ENABLED
-
-extern TIM_HandleTypeDef htim1;
-extern TIM_HandleTypeDef htim2;
-extern TIM_HandleTypeDef htim3;
-extern TIM_HandleTypeDef htim4;
-extern TIM_HandleTypeDef htim12;
-extern TIM_HandleTypeDef htim16;
-extern TIM_HandleTypeDef htim17;
-extern TIM_HandleTypeDef htim15;
-extern TIM_HandleTypeDef htim23;
 
 TimerPeripheral::InitData init_data_timer1(TIM1);
 TimerPeripheral::InitData init_data_timer2(TIM2);
@@ -154,7 +171,6 @@ map<pair<Pin, Pin>, PWMservice::Instance> PWMservice::available_instances_dual =
  ***********************************************/
 #ifdef HAL_TIM_MODULE_ENABLED
 
-extern TIM_HandleTypeDef htim2;
 
 map<Pin, InputCapture::Instance> InputCapture::available_instances = {
 		{PA0, InputCapture::Instance(PA0, &timer2, TIM_CHANNEL_1, TIM_CHANNEL_2)}
@@ -167,14 +183,6 @@ map<Pin, InputCapture::Instance> InputCapture::available_instances = {
  *					   ADC
  ***********************************************/
 #if defined(HAL_ADC_MODULE_ENABLED) && defined(HAL_LPTIM_MODULE_ENABLED)
-
-extern ADC_HandleTypeDef hadc1;
-extern ADC_HandleTypeDef hadc2;
-extern ADC_HandleTypeDef hadc3;
-
-extern LPTIM_HandleTypeDef hlptim1;
-extern LPTIM_HandleTypeDef hlptim2;
-extern LPTIM_HandleTypeDef hlptim3;
 
 uint16_t adc_buf1[ADC_BUF_LEN];
 uint16_t adc_buf2[ADC_BUF_LEN];
@@ -198,28 +206,8 @@ ADC::Peripheral ADC::peripherals[3] = {
 		ADC::Peripheral(&hadc3, adc_buf3, lptim3, init_data3)
 };
 
-map<Pin, ADC::Instance> ADC::available_instances = {
-		{PF11, Instance(&peripherals[0], ADC_CHANNEL_2)},
-		{PF12, Instance(&peripherals[0], ADC_CHANNEL_6)},
-		{PF13, Instance(&peripherals[1], ADC_CHANNEL_2)},
-		{PF14, Instance(&peripherals[1], ADC_CHANNEL_6)},
-		{PF5, Instance(&peripherals[2], ADC_CHANNEL_4)},
-		{PF6, Instance(&peripherals[2], ADC_CHANNEL_8)},
-		{PF7, Instance(&peripherals[2], ADC_CHANNEL_3)},
-		{PF8, Instance(&peripherals[2], ADC_CHANNEL_7)},
-		{PF9, Instance(&peripherals[2], ADC_CHANNEL_2)},
-		{PF10, Instance(&peripherals[2], ADC_CHANNEL_6)},
-		{PC2, Instance(&peripherals[2], ADC_CHANNEL_0)},
-		{PC3, Instance(&peripherals[2], ADC_CHANNEL_1)},
-		{PF10, Instance(&peripherals[2], ADC_CHANNEL_6)},
-		{PC0, Instance(&peripherals[0], ADC_CHANNEL_10)},
-		{PA0, Instance(&peripherals[0], ADC_CHANNEL_16)},
-		{PA3, Instance(&peripherals[0], ADC_CHANNEL_15)},
-		{PA4, Instance(&peripherals[0], ADC_CHANNEL_18)},
-		{PA5, Instance(&peripherals[0], ADC_CHANNEL_19)},
-		{PA6, Instance(&peripherals[0], ADC_CHANNEL_3)},
-		{PB0, Instance(&peripherals[0], ADC_CHANNEL_9)},
-		{PB1, Instance(&peripherals[0], ADC_CHANNEL_5)}
+map<Pin*, ADC::Instance> ADC::available_instances = {
+		{&PF11, Instance(&peripherals[0], ADC_CHANNEL_2)},
 };
 
 uint32_t ADC::ranks[16] = {
