@@ -14,7 +14,12 @@ int main(void)
 
 	UART::set_up_printf(UART::uart2);
 
-	uint8_t adc = ADC::inscribe(&PF11).value();
+	optional<uint8_t> adc = ADC::inscribe(PF11);
+
+	if (not adc.has_value()) {
+		__NOP();
+	}
+
 	DMA::inscribe_stream(DMA::Stream::DMA1Stream0);
 
 	Pin::start();
@@ -23,10 +28,10 @@ int main(void)
 	UART::start();
 
 
-	ADC::turn_on(adc);
+	ADC::turn_on(adc.value());
 
 	while (1) {
-		float value = ADC::get_value(adc).value();
+		float value = ADC::get_value(adc.value()).value();
 
 		printf("Value = %f \r", value);
 		HAL_Delay(50);
