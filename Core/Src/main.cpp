@@ -15,30 +15,52 @@ int main(void)
 	UART::set_up_printf(UART::uart2);
 
 	optional<uint8_t> adc = ADC::inscribe(PF11);
+	optional<uint8_t> input = InputCapture::inscribe(PA0);
 
 	if (not adc.has_value()) {
 		__NOP();
 	}
 
-	DMA::inscribe_stream(DMA::Stream::DMA1Stream0);
+	if (not input.has_value()) {
+		__NOP();
+	}
 
+	double position = 0, direction = 0, speed = 0, acceleration = 0;
+	EncoderSensor encoder = EncoderSensor(PC6, PC7, &position, &direction, &speed, &acceleration);
+
+
+	DMA::inscribe_stream(DMA::Stream::DMA1Stream0);
 	Pin::start();
 	DMA::start();
+	Time::start();
 	ADC::start();
 	UART::start();
+	Encoder::start();
 
+	printf("\n\n\n\n\n");
+
+
+	uint32_t freq = 0;
+	uint8_t duty = 0;
+	InputCapture::turn_on(input.value());
+
+
+	encoder.start();
 
 	ADC::turn_on(adc.value());
 
 	while (1) {
 		float value = ADC::get_value(adc.value()).value();
+		encoder.read();
 
-		printf("Value = %f \r", value);
+		freq = InputCapture::read_frequency(input.value()).value();
+		duty = InputCapture::read_duty_cycle(input.value()).value();
+
+		printf("Value = %f | Position = %f; Direction = %f; Speed = %f; Acceleration = %f; | Freq = %lu; Duty = %u | \r", value, position, direction, speed, acceleration, freq, duty);
 		HAL_Delay(50);
 
 	}
 }
-
 void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
@@ -98,22 +120,35 @@ void SystemClock_Config(void)
   }
 }
 
+/**
+  * @brief Peripherals Common Clock Configuration
+  * @retval None
+  */
 void PeriphCommonClock_Config(void)
 {
   RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = {0};
 
   /** Initializes the peripherals clock
   */
-  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_ADC;
-  PeriphClkInitStruct.PLL2.PLL2M = 1;
-  PeriphClkInitStruct.PLL2.PLL2N = 24;
+  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_ADC|RCC_PERIPHCLK_FDCAN;
+  PeriphClkInitStruct.PLL2.PLL2M = 8;
+  PeriphClkInitStruct.PLL2.PLL2N = 160;
   PeriphClkInitStruct.PLL2.PLL2P = 2;
-  PeriphClkInitStruct.PLL2.PLL2Q = 2;
+  PeriphClkInitStruct.PLL2.PLL2Q = 10;
   PeriphClkInitStruct.PLL2.PLL2R = 2;
-  PeriphClkInitStruct.PLL2.PLL2RGE = RCC_PLL2VCIRANGE_3;
-  PeriphClkInitStruct.PLL2.PLL2VCOSEL = RCC_PLL2VCOWIDE;
+  PeriphClkInitStruct.PLL2.PLL2RGE = RCC_PLL2VCIRANGE_0;
+  PeriphClkInitStruct.PLL2.PLL2VCOSEL = RCC_PLL2VCOMEDIUM;
   PeriphClkInitStruct.PLL2.PLL2FRACN = 0;
-  PeriphClkInitStruct.AdcClockSelection = RCC_ADCCLKSOURCE_PLL2;
+  PeriphClkInitStruct.PLL3.PLL3M = 8;
+  PeriphClkInitStruct.PLL3.PLL3N = 192;
+  PeriphClkInitStruct.PLL3.PLL3P = 2;
+  PeriphClkInitStruct.PLL3.PLL3Q = 2;
+  PeriphClkInitStruct.PLL3.PLL3R = 2;
+  PeriphClkInitStruct.PLL3.PLL3RGE = RCC_PLL3VCIRANGE_0;
+  PeriphClkInitStruct.PLL3.PLL3VCOSEL = RCC_PLL3VCOMEDIUM;
+  PeriphClkInitStruct.PLL3.PLL3FRACN = 0;
+  PeriphClkInitStruct.FdcanClockSelection = RCC_FDCANCLKSOURCE_PLL2;
+  PeriphClkInitStruct.AdcClockSelection = RCC_ADCCLKSOURCE_PLL3;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
   {
     Error_Handler();
