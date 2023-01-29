@@ -26,7 +26,7 @@ int main(void)
 	}
 
 	double position = 0, direction = 0, speed = 0, acceleration = 0;
-	EncoderSensor encoder = EncoderSensor(PC6, PC7, &position, &direction, &speed, &acceleration);
+	EncoderSensor encoder = EncoderSensor(PC6, PC7, &position, &speed, &acceleration);
 
 
 	DMA::inscribe_stream(DMA::Stream::DMA1Stream0);
