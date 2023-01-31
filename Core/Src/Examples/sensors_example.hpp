@@ -19,7 +19,6 @@ void sensors_example(){
 	DigitalSensor digital = DigitalSensor(PF0, &pin);
 
 	Pin::start();
-	DMA::start();
 	Time::start();
 	ADC::start();
 	UART::start();
