@@ -128,7 +128,7 @@ TimerPeripheral::InitData init_data_timer12(TIM12);
 TimerPeripheral::InitData init_data_timer16(TIM16);
 TimerPeripheral::InitData init_data_timer17(TIM17);
 TimerPeripheral::InitData init_data_timer15(TIM15);
-TimerPeripheral::InitData init_data_timer23(TIM23);
+TimerPeripheral::InitData init_data_timer23(TIM23, 275, UINT32_MAX - 1);
 
 TimerPeripheral timer1(&htim1, init_data_timer1, "TIM 1");
 TimerPeripheral timer2(&htim2, init_data_timer2, "TIM 2");
