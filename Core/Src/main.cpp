@@ -1,8 +1,7 @@
 #include "ST-LIB.hpp"
 #include "Runes/Runes.hpp"
 
-#include "Examples/adc_exmaple.hpp"
-#include "Examples/input_capture_example.hpp"
+#include "Examples/examples_includes.hpp"
 
 void SystemClock_Config(void);
 void PeriphCommonClock_Config(void);
@@ -15,10 +14,7 @@ int main(void)
 	SystemClock_Config();
 	PeriphCommonClock_Config();
 
-	input_capture_example();
-
 	while (1) {
-
 
 	}
 }

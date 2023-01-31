@@ -1,5 +1,12 @@
+/*
+ * adc_example.hpp
+ *
+ *  Created on: 30 Jan. 2022
+ *      Author: Pablo
+ */
+#pragma once
+
 #include "ST-LIB.hpp"
-#include "DMA/DMA.hpp"
 
 int adc_example(void)
 {
@@ -10,8 +17,6 @@ int adc_example(void)
 	if (not adc.has_value()) {
 		ErrorHandler("No se ha podido registrar el adc", 0);
 	}
-
-	DMA::inscribe_stream(DMA::Stream::DMA1Stream0);
 
 	Pin::start();
 	DMA::start();

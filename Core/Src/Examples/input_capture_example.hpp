@@ -1,3 +1,11 @@
+/*
+ * input_capture_example.hpp
+ *
+ *  Created on: 31 Jan. 2022
+ *      Author: Pablo
+ */
+#pragma once
+
 #include "ST-LIB.hpp"
 #include "DMA/DMA.hpp"
 #include "ErrorHandler/ErrorHandler.hpp"
