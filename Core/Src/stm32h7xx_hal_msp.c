@@ -1174,6 +1174,9 @@ void HAL_TIM_IC_MspInit(TIM_HandleTypeDef* htim_ic)
     GPIO_InitStruct.Alternate = GPIO_AF13_TIM23;
     HAL_GPIO_Init(PWM_IN_GPIO_Port, &GPIO_InitStruct);
 
+    /* TIM23 interrupt Init */
+    HAL_NVIC_SetPriority(TIM23_IRQn, 0, 0);
+    HAL_NVIC_EnableIRQ(TIM23_IRQn);
   /* USER CODE BEGIN TIM23_MspInit 1 */
 
   /* USER CODE END TIM23_MspInit 1 */
@@ -1589,6 +1592,8 @@ void HAL_TIM_IC_MspDeInit(TIM_HandleTypeDef* htim_ic)
     */
     HAL_GPIO_DeInit(GPIOF, PWM_IN_Pin|PWM_OUTF1_Pin|PWM_OUTF2_Pin|PWM_OUTF3_Pin);
 
+    /* TIM23 interrupt DeInit */
+    HAL_NVIC_DisableIRQ(TIM23_IRQn);
   /* USER CODE BEGIN TIM23_MspDeInit 1 */
 
   /* USER CODE END TIM23_MspDeInit 1 */

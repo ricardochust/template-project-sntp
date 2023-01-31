@@ -64,6 +64,7 @@ extern LPTIM_HandleTypeDef hlptim3;
 extern TIM_HandleTypeDef htim2;
 extern TIM_HandleTypeDef htim5;
 extern TIM_HandleTypeDef htim6;
+extern TIM_HandleTypeDef htim23;
 extern TIM_HandleTypeDef htim24;
 /* USER CODE BEGIN EV */
 
@@ -359,6 +360,20 @@ void LPTIM3_IRQHandler(void)
   /* USER CODE BEGIN LPTIM3_IRQn 1 */
 
   /* USER CODE END LPTIM3_IRQn 1 */
+}
+
+/**
+  * @brief This function handles TIM23 global interrupt.
+  */
+void TIM23_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM23_IRQn 0 */
+
+  /* USER CODE END TIM23_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim23);
+  /* USER CODE BEGIN TIM23_IRQn 1 */
+
+  /* USER CODE END TIM23_IRQn 1 */
 }
 
 /**

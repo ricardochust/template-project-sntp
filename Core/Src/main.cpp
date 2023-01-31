@@ -1,9 +1,13 @@
 #include "ST-LIB.hpp"
 #include "Runes/Runes.hpp"
-#include "DMA/DMA.hpp"
+
+#include "Examples/adc_exmaple.hpp"
+#include "Examples/input_capture_example.hpp"
 
 void SystemClock_Config(void);
 void PeriphCommonClock_Config(void);
+void Error_Handler(void);
+
 
 int main(void)
 {
@@ -11,55 +15,14 @@ int main(void)
 	SystemClock_Config();
 	PeriphCommonClock_Config();
 
-	UART::set_up_printf(UART::uart2);
-
-	optional<uint8_t> adc = ADC::inscribe(PF11);
-	optional<uint8_t> input = InputCapture::inscribe(PA0);
-
-	if (not adc.has_value()) {
-		__NOP();
-	}
-
-	if (not input.has_value()) {
-		__NOP();
-	}
-
-	double position = 0, direction = 0, speed = 0, acceleration = 0;
-	EncoderSensor encoder = EncoderSensor(PC6, PC7, &position, &speed, &acceleration);
-
-
-	DMA::inscribe_stream(DMA::Stream::DMA1Stream0);
-	Pin::start();
-	DMA::start();
-	Time::start();
-	ADC::start();
-	UART::start();
-	Encoder::start();
-
-	printf("\n\n\n\n\n");
-
-
-	uint32_t freq = 0;
-	uint8_t duty = 0;
-	InputCapture::turn_on(input.value());
-
-
-	encoder.start();
-
-	ADC::turn_on(adc.value());
+	input_capture_example();
 
 	while (1) {
-		float value = ADC::get_value(adc.value()).value();
-		encoder.read();
 
-		freq = InputCapture::read_frequency(input.value()).value();
-		duty = InputCapture::read_duty_cycle(input.value()).value();
-
-		printf("Value = %f | Position = %f; Direction = %f; Speed = %f; Acceleration = %f; | Freq = %lu; Duty = %u | \r", value, position, direction, speed, acceleration, freq, duty);
-		HAL_Delay(50);
 
 	}
 }
+
 void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};

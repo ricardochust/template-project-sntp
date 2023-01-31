@@ -108,7 +108,7 @@ bool UART::printf_ready = false;
  ***********************************************/
 #ifdef HAL_TIM_MODULE_ENABLED
 
-TimerPeripheral encoder_timer = TimerPeripheral(&htim8, {TIM8, 0, 65535});
+TimerPeripheral encoder_timer = TimerPeripheral(&htim8, {TIM8, 0, 65535}, "TIM 8");
 
 map<pair<Pin, Pin>, TimerPeripheral*> Encoder::pin_timer_map = {
 		{{PC6, PC7}, &encoder_timer}
@@ -130,15 +130,15 @@ TimerPeripheral::InitData init_data_timer17(TIM17);
 TimerPeripheral::InitData init_data_timer15(TIM15);
 TimerPeripheral::InitData init_data_timer23(TIM23);
 
-TimerPeripheral timer1(&htim1, init_data_timer1);
-TimerPeripheral timer2(&htim2, init_data_timer2);
-TimerPeripheral timer3(&htim3, init_data_timer3);
-TimerPeripheral timer4(&htim4, init_data_timer4);
-TimerPeripheral timer12(&htim12, init_data_timer12);
-TimerPeripheral timer16(&htim16, init_data_timer16);
-TimerPeripheral timer17(&htim17, init_data_timer17);
-TimerPeripheral timer15(&htim15, init_data_timer15);
-TimerPeripheral timer23(&htim23, init_data_timer23);
+TimerPeripheral timer1(&htim1, init_data_timer1, "TIM 1");
+TimerPeripheral timer2(&htim2, init_data_timer2, "TIM 2");
+TimerPeripheral timer3(&htim3, init_data_timer3, "TIM 3");
+TimerPeripheral timer4(&htim4, init_data_timer4, "TIM 4");
+TimerPeripheral timer12(&htim12, init_data_timer12, "TIM 12");
+TimerPeripheral timer16(&htim16, init_data_timer16, "TIM 16");
+TimerPeripheral timer17(&htim17, init_data_timer17, "TIM 17");
+TimerPeripheral timer15(&htim15, init_data_timer15, "TIM 15");
+TimerPeripheral timer23(&htim23, init_data_timer23, "TIM 23");
 
 vector<reference_wrapper<TimerPeripheral>> TimerPeripheral::timers = {
 		timer1,
@@ -195,7 +195,7 @@ map<pair<Pin, Pin>, PWMservice::Instance> PWMservice::available_instances_dual =
 
 
 map<Pin, InputCapture::Instance> InputCapture::available_instances = {
-		{PA0, InputCapture::Instance(PA0, &timer2, TIM_CHANNEL_1, TIM_CHANNEL_2)}
+		{PF0, InputCapture::Instance(PF0, &timer23, TIM_CHANNEL_1, TIM_CHANNEL_2)}
 };
 
 #endif
@@ -218,9 +218,9 @@ vector<uint32_t> channels1 = {};
 vector<uint32_t> channels2 = {};
 vector<uint32_t> channels3 = {};
 
-ADC::InitData init_data1 = ADC::InitData(ADC1, ADC_RESOLUTION_16B, ADC_EXTERNALTRIG_LPTIM1_OUT, channels1);
-ADC::InitData init_data2 = ADC::InitData(ADC2, ADC_RESOLUTION_16B, ADC_EXTERNALTRIG_LPTIM2_OUT, channels2);
-ADC::InitData init_data3 = ADC::InitData(ADC3, ADC_RESOLUTION_12B, ADC_EXTERNALTRIG_LPTIM3_OUT, channels3);
+ADC::InitData init_data1 = ADC::InitData(ADC1, ADC_RESOLUTION_16B, ADC_EXTERNALTRIG_LPTIM1_OUT, channels1, DMA::Stream::DMA1Stream0);
+ADC::InitData init_data2 = ADC::InitData(ADC2, ADC_RESOLUTION_16B, ADC_EXTERNALTRIG_LPTIM2_OUT, channels2, DMA::Stream::DMA1Stream1);
+ADC::InitData init_data3 = ADC::InitData(ADC3, ADC_RESOLUTION_12B, ADC_EXTERNALTRIG_LPTIM3_OUT, channels3, DMA::Stream::DMA1Stream2);
 
 ADC::Peripheral ADC::peripherals[3] = {
 		ADC::Peripheral(&hadc1, adc_buf1, lptim1, init_data1),
