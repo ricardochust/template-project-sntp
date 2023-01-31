@@ -9,7 +9,6 @@
 #include "ST-LIB.hpp"
 #include "DMA/DMA.hpp"
 #include "ErrorHandler/ErrorHandler.hpp"
-#include "main.h"
 
 void input_capture_example(void){
 	UART::set_up_printf(UART::uart2);
@@ -32,7 +31,7 @@ void input_capture_example(void){
 	//Time::start();
 	UART::start();
 
-	printf("\n\n\n\n\n\n\n\n\n\n");
+	printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
 	uint32_t freq = 0;
 	uint8_t duty = 0;
