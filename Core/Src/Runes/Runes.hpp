@@ -30,6 +30,7 @@ SPI_HandleTypeDef hspi3;
 FDCAN_HandleTypeDef hfdcan1;
 ETH_HandleTypeDef heth;
 
+
 /************************************************
  *              Communication-FDCAN
  ***********************************************/
