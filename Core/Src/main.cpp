@@ -5,14 +5,10 @@
 #include "Runes/Runes.hpp"
 #include "Examples/examples_includes.hpp"
 
-void Error_Handler(void);
-
 extern struct netif gnetif;
 
 int main(void)
 {
-
-
 
 	while (1) {
 	}
