@@ -1,5 +1,6 @@
-#include "adc_exmaple.hpp"
+#include "adc_example.hpp"
 #include "input_capture_example.hpp"
+#include "protection_manager.hpp"
 #include "sensors_example.hpp"
 #include "exti_example.hpp"
 #include "clock_example.hpp"

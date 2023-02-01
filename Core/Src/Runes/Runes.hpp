@@ -28,7 +28,7 @@ UART_HandleTypeDef huart2;
 UART_HandleTypeDef huart3;
 SPI_HandleTypeDef hspi3;
 FDCAN_HandleTypeDef hfdcan1;
-ETH_HandleTypeDef heth;
+
 
 /************************************************
  *              Communication-FDCAN
@@ -210,9 +210,9 @@ uint16_t adc_buf1[ADC_BUF_LEN];
 uint16_t adc_buf2[ADC_BUF_LEN];
 uint16_t adc_buf3[ADC_BUF_LEN];
 
-LowPowerTimer lptim1 = LowPowerTimer(*LPTIM1, hlptim1, LPTIM1_PERIOD,"LOW POWER TIMER 1");
-LowPowerTimer lptim2 = LowPowerTimer(*LPTIM2, hlptim2, LPTIM2_PERIOD,"LOW POWER TIMER 2");
-LowPowerTimer lptim3 = LowPowerTimer(*LPTIM3, hlptim3, LPTIM3_PERIOD,"LOW POWER TIMER 3");
+LowPowerTimer lptim1 = LowPowerTimer(*LPTIM1, hlptim1, LPTIM1_PERIOD, "LPTIM 1");
+LowPowerTimer lptim2 = LowPowerTimer(*LPTIM2, hlptim2, LPTIM2_PERIOD, "LPTIM 2");
+LowPowerTimer lptim3 = LowPowerTimer(*LPTIM3, hlptim3, LPTIM3_PERIOD, "LPTIM 3");
 
 vector<uint32_t> channels1 = {};
 vector<uint32_t> channels2 = {};

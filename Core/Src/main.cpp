@@ -1,12 +1,15 @@
+#include "main.h"
+#include "lwip.h"
+
 #include "ST-LIB.hpp"
 #include "Runes/Runes.hpp"
-
 #include "Examples/examples_includes.hpp"
 
 void SystemClock_Config(void);
 void PeriphCommonClock_Config(void);
 void Error_Handler(void);
 
+extern struct netif gnetif;
 
 int main(void)
 {
@@ -16,10 +19,12 @@ int main(void)
 
 	adc_example();
 
+	protection_manager_example();
 	while (1) {
 
 	}
 }
+
 
 void SystemClock_Config(void)
 {
