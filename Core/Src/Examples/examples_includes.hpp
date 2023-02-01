@@ -3,3 +3,4 @@
 #include "sensors_example.hpp"
 #include "exti_example.hpp"
 #include "time_example.hpp"
+#include "clock_example.hpp"
