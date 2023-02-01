@@ -63,6 +63,7 @@ void DMA1_Stream2_IRQHandler(void);
 void TIM2_IRQHandler(void);
 void TIM5_IRQHandler(void);
 void TIM6_DAC_IRQHandler(void);
+void ETH_IRQHandler(void);
 void LPTIM1_IRQHandler(void);
 void LPTIM2_IRQHandler(void);
 void LPTIM3_IRQHandler(void);
