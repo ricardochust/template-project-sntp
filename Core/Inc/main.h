@@ -65,10 +65,6 @@ void Error_Handler(void);
 #define PWM_OUT_GPIO_Port GPIOE
 #define PWM_OUTE6_Pin GPIO_PIN_6
 #define PWM_OUTE6_GPIO_Port GPIOE
-#define RTC_IN_Pin GPIO_PIN_14
-#define RTC_IN_GPIO_Port GPIOC
-#define RTC_OUT_Pin GPIO_PIN_15
-#define RTC_OUT_GPIO_Port GPIOC
 #define PWM_IN_Pin GPIO_PIN_0
 #define PWM_IN_GPIO_Port GPIOF
 #define PWM_OUTF3_Pin GPIO_PIN_3
@@ -87,8 +83,6 @@ void Error_Handler(void);
 #define ADC_12BITF10_GPIO_Port GPIOF
 #define HSE_IN_Pin GPIO_PIN_0
 #define HSE_IN_GPIO_Port GPIOH
-#define HSE_OUT_Pin GPIO_PIN_1
-#define HSE_OUT_GPIO_Port GPIOH
 #define ADC_16BIT_Pin GPIO_PIN_0
 #define ADC_16BIT_GPIO_Port GPIOC
 #define RMII_MDC_Pin GPIO_PIN_1

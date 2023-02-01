@@ -106,12 +106,11 @@ void MX_LWIP_Init(void)
 
   /* Create the Ethernet link handler thread */
 
-  /* USER CODE BEGIN 3 */
+/* USER CODE BEGIN 3 */
   if(!netif_is_link_up(&gnetif)){
     HAL_NVIC_SystemReset();
   }
-  /* USER CODE END 3 */
-
+/* USER CODE END 3 */
 }
 
 #ifdef USE_OBSOLETE_USER_CODE_SECTION_4
@@ -171,7 +170,6 @@ void MX_LWIP_Process(void)
   }
 /* USER CODE END 4_3 */
 }
-
 
 /**
   * @brief  Notify the User about the network interface config status

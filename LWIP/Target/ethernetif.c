@@ -173,7 +173,7 @@ static void low_level_init(struct netif *netif)
   heth.Init.MediaInterface = HAL_ETH_RMII_MODE;
   heth.Init.TxDesc = DMATxDscrTab;
   heth.Init.RxDesc = DMARxDscrTab;
-  heth.Init.RxBuffLen = 1536;
+  heth.Init.RxBuffLen = 1524;
 
   /* USER CODE BEGIN MACADDRESS */
 
@@ -290,13 +290,10 @@ static err_t low_level_output(struct netif *netif, struct pbuf *p)
   TxConfig.TxBuffer = Txbuffer;
   TxConfig.pData = p;
 
-  SCB_CleanInvalidateDCache_by_Addr(p->payload, p->len);
-
-  HAL_ETH_Transmit(&heth, &TxConfig, 0);
+  HAL_ETH_Transmit(&heth, &TxConfig, ETH_DMA_TRANSMIT_TIMEOUT);
 
   return errval;
 }
-
 
 /**
  * @brief Should allocate a pbuf and transfer the bytes of the incoming
@@ -609,7 +606,6 @@ int32_t ETH_PHY_IO_ReadReg(uint32_t DevAddr, uint32_t RegAddr, uint32_t *pRegVal
 {
   if(HAL_ETH_ReadPHYRegister(&heth, DevAddr, RegAddr, pRegVal) != HAL_OK)
   {
-    HAL_NVIC_SystemReset();
     return -1;
   }
 
@@ -627,13 +623,11 @@ int32_t ETH_PHY_IO_WriteReg(uint32_t DevAddr, uint32_t RegAddr, uint32_t RegVal)
 {
   if(HAL_ETH_WritePHYRegister(&heth, DevAddr, RegAddr, RegVal) != HAL_OK)
   {
-    HAL_NVIC_SystemReset();
     return -1;
   }
 
   return 0;
 }
-
 
 /**
   * @brief  Get the time in millisecons used for internal PHY driver process.
