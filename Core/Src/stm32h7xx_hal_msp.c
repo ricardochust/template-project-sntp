@@ -1017,6 +1017,16 @@ void HAL_TIM_PWM_MspInit(TIM_HandleTypeDef* htim_pwm)
   /* USER CODE BEGIN TIM15_MspInit 1 */
 
   /* USER CODE END TIM15_MspInit 1 */
+  }else if(htim_pwm->Instance==TIM23)
+  {
+  /* USER CODE BEGIN TIM15_MspInit 0 */
+
+  /* USER CODE END TIM15_MspInit 0 */
+    /* Peripheral clock enable */
+    __HAL_RCC_TIM23_CLK_ENABLE();
+  /* USER CODE BEGIN TIM15_MspInit 1 */
+
+  /* USER CODE END TIM15_MspInit 1 */
   }
 
 }
@@ -1367,16 +1377,14 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef* htim)
 
     __HAL_RCC_GPIOF_CLK_ENABLE();
     /**TIM23 GPIO Configuration
-    PF1     ------> TIM23_CH2
-    PF2     ------> TIM23_CH3
     PF3     ------> TIM23_CH4
     */
-    GPIO_InitStruct.Pin = PWM_OUTF1_Pin|PWM_OUTF2_Pin|PWM_OUTF3_Pin;
+    GPIO_InitStruct.Pin = PWM_OUTF3_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
     GPIO_InitStruct.Alternate = GPIO_AF13_TIM23;
-    HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
+    HAL_GPIO_Init(PWM_OUTF3_GPIO_Port, &GPIO_InitStruct);
 
   /* USER CODE BEGIN TIM23_MspPostInit 1 */
 
@@ -1586,11 +1594,9 @@ void HAL_TIM_IC_MspDeInit(TIM_HandleTypeDef* htim_ic)
 
     /**TIM23 GPIO Configuration
     PF0     ------> TIM23_CH1
-    PF1     ------> TIM23_CH2
-    PF2     ------> TIM23_CH3
     PF3     ------> TIM23_CH4
     */
-    HAL_GPIO_DeInit(GPIOF, PWM_IN_Pin|PWM_OUTF1_Pin|PWM_OUTF2_Pin|PWM_OUTF3_Pin);
+    HAL_GPIO_DeInit(GPIOF, PWM_IN_Pin|PWM_OUTF3_Pin);
 
     /* TIM23 interrupt DeInit */
     HAL_NVIC_DisableIRQ(TIM23_IRQn);
