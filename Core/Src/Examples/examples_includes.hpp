@@ -6,3 +6,4 @@
 #include "clock_example.hpp"
 #include "low_time_example.hpp"
 #include "state_example.hpp"
+#include "can_example.hpp"
