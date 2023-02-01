@@ -17,7 +17,7 @@ int main(void)
 //	SystemClock_Config();
 //	PeriphCommonClock_Config();
 
-	adc_example();
+	protection_manager_example();
 	while (1) {
 
 	}

@@ -23,8 +23,8 @@ int adc_example(void)
 //	Time::start();
 //	ADC::start();
 //	UART::start();
-	STLIB::start(Nucleo, "192.168.1.4", "255.255.0.0", "192.168.1.1", UART::uart2);
-	printf("\n\n\n\n\n\n\n\n\n\n");
+//	STLIB::start(Nucleo, "192.168.1.4", "255.255.0.0", "192.168.1.1", UART::uart2);
+//	printf("\n\n\n\n\n\n\n\n\n\n");
 
 	ADC::turn_on(adc.value());
 
