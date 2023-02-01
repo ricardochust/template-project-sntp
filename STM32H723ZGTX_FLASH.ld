@@ -162,6 +162,18 @@ SECTIONS
     . = ALIGN(8);
   } >RAM_D1
 
+ .lwip_sec (NOLOAD) :
+  {
+    . = ABSOLUTE(0x30000000);
+    *(.RxDecripSection) 
+    
+    . = ABSOLUTE(0x30000060);
+    *(.TxDecripSection)
+    
+    . = ABSOLUTE(0x30000200);
+    *(.Rx_PoolSection) 
+  } >RAM_D2
+
   /* Remove information from the standard libraries */
   /DISCARD/ :
   {
