@@ -14,7 +14,7 @@ int main(void)
 	SystemClock_Config();
 	PeriphCommonClock_Config();
 
-	input_capture_example();
+	adc_example();
 
 	while (1) {
 

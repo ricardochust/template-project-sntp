@@ -218,9 +218,9 @@ vector<uint32_t> channels1 = {};
 vector<uint32_t> channels2 = {};
 vector<uint32_t> channels3 = {};
 
-ADC::InitData init_data1 = ADC::InitData(ADC1, ADC_RESOLUTION_16B, ADC_EXTERNALTRIG_LPTIM1_OUT, channels1, DMA::Stream::DMA1Stream0);
-ADC::InitData init_data2 = ADC::InitData(ADC2, ADC_RESOLUTION_16B, ADC_EXTERNALTRIG_LPTIM2_OUT, channels2, DMA::Stream::DMA1Stream1);
-ADC::InitData init_data3 = ADC::InitData(ADC3, ADC_RESOLUTION_12B, ADC_EXTERNALTRIG_LPTIM3_OUT, channels3, DMA::Stream::DMA1Stream2);
+ADC::InitData init_data1 = ADC::InitData(ADC1, ADC_RESOLUTION_16B, ADC_EXTERNALTRIG_LPTIM1_OUT, channels1, DMA::Stream::DMA1Stream0, "ADC 1");
+ADC::InitData init_data2 = ADC::InitData(ADC2, ADC_RESOLUTION_16B, ADC_EXTERNALTRIG_LPTIM2_OUT, channels2, DMA::Stream::DMA1Stream1, "ADC 2");
+ADC::InitData init_data3 = ADC::InitData(ADC3, ADC_RESOLUTION_12B, ADC_EXTERNALTRIG_LPTIM3_OUT, channels3, DMA::Stream::DMA1Stream2, "ADC 3");
 
 ADC::Peripheral ADC::peripherals[3] = {
 		ADC::Peripheral(&hadc1, adc_buf1, lptim1, init_data1),
