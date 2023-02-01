@@ -4,4 +4,5 @@
 #include "exti_example.hpp"
 #include "clock_example.hpp"
 #include "low_time_example.hpp"
+#include "high_time_example.hpp"
 #include "state_example.hpp"
