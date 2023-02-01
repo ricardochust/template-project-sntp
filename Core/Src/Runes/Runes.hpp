@@ -210,17 +210,17 @@ uint16_t adc_buf1[ADC_BUF_LEN];
 uint16_t adc_buf2[ADC_BUF_LEN];
 uint16_t adc_buf3[ADC_BUF_LEN];
 
-LowPowerTimer lptim1 = LowPowerTimer(*LPTIM1, hlptim1, LPTIM1_PERIOD);
-LowPowerTimer lptim2 = LowPowerTimer(*LPTIM2, hlptim2, LPTIM2_PERIOD);
-LowPowerTimer lptim3 = LowPowerTimer(*LPTIM3, hlptim3, LPTIM3_PERIOD);
+LowPowerTimer lptim1 = LowPowerTimer(*LPTIM1, hlptim1, LPTIM1_PERIOD, "LPTIM 1");
+LowPowerTimer lptim2 = LowPowerTimer(*LPTIM2, hlptim2, LPTIM2_PERIOD, "LPTIM 2");
+LowPowerTimer lptim3 = LowPowerTimer(*LPTIM3, hlptim3, LPTIM3_PERIOD, "LPTIM 3");
 
 vector<uint32_t> channels1 = {};
 vector<uint32_t> channels2 = {};
 vector<uint32_t> channels3 = {};
 
-ADC::InitData init_data1 = ADC::InitData(ADC1, ADC_RESOLUTION_16B, ADC_EXTERNALTRIG_LPTIM1_OUT, channels1, DMA::Stream::DMA1Stream0);
-ADC::InitData init_data2 = ADC::InitData(ADC2, ADC_RESOLUTION_16B, ADC_EXTERNALTRIG_LPTIM2_OUT, channels2, DMA::Stream::DMA1Stream1);
-ADC::InitData init_data3 = ADC::InitData(ADC3, ADC_RESOLUTION_12B, ADC_EXTERNALTRIG_LPTIM3_OUT, channels3, DMA::Stream::DMA1Stream2);
+ADC::InitData init_data1 = ADC::InitData(ADC1, ADC_RESOLUTION_16B, ADC_EXTERNALTRIG_LPTIM1_OUT, channels1, DMA::Stream::DMA1Stream0, "ADC 1");
+ADC::InitData init_data2 = ADC::InitData(ADC2, ADC_RESOLUTION_16B, ADC_EXTERNALTRIG_LPTIM2_OUT, channels2, DMA::Stream::DMA1Stream1, "ADC 2");
+ADC::InitData init_data3 = ADC::InitData(ADC3, ADC_RESOLUTION_12B, ADC_EXTERNALTRIG_LPTIM3_OUT, channels3, DMA::Stream::DMA1Stream2, "ADC 3");
 
 ADC::Peripheral ADC::peripherals[3] = {
 		ADC::Peripheral(&hadc1, adc_buf1, lptim1, init_data1),
