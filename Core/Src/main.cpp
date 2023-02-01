@@ -5,8 +5,6 @@
 #include "Runes/Runes.hpp"
 #include "Examples/examples_includes.hpp"
 
-void SystemClock_Config(void);
-void PeriphCommonClock_Config(void);
 void Error_Handler(void);
 
 extern struct netif gnetif;
@@ -16,10 +14,10 @@ int main(void)
 
 	can_example();
 	while (1) {
-
 	}
 }
 
+<<<<<<< HEAD
 
 void SystemClock_Config(void)
 {
@@ -106,6 +104,8 @@ void PeriphCommonClock_Config(void)
   }
 }
 
+=======
+>>>>>>> 5843097cc844a7a47fd89cb921ae524655f2b86c
 void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
