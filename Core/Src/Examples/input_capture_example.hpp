@@ -25,10 +25,7 @@ void input_capture_example(void){
 	}
 
 	Pin::start();
-	DMA::start();
 	TimerPeripheral::start();
-	//MX_TIM23_Init();
-	//Time::start();
 	UART::start();
 
 	printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
