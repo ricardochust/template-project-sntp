@@ -7,3 +7,4 @@
 #include "low_time_example.hpp"
 #include "state_example.hpp"
 #include "can_example.hpp"
+#include "pwm_example.hpp"
