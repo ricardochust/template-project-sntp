@@ -121,14 +121,14 @@ map<pair<Pin, Pin>, TimerPeripheral*> Encoder::pin_timer_map = {
 #ifdef HAL_TIM_MODULE_ENABLED
 
 TimerPeripheral::InitData init_data_timer1(TIM1);
-TimerPeripheral::InitData init_data_timer2(TIM2, is_base=true);
+TimerPeripheral::InitData init_data_timer2(TIM2, true);
 TimerPeripheral::InitData init_data_timer3(TIM3);
 TimerPeripheral::InitData init_data_timer4(TIM4);
 TimerPeripheral::InitData init_data_timer12(TIM12);
-TimerPeripheral::InitData init_data_timer16(TIM16, is_base=true);
-TimerPeripheral::InitData init_data_timer17(TIM17, is_base=true);
+TimerPeripheral::InitData init_data_timer16(TIM16, true);
+TimerPeripheral::InitData init_data_timer17(TIM17, true);
 TimerPeripheral::InitData init_data_timer15(TIM15);
-TimerPeripheral::InitData init_data_timer23(TIM23, 275, UINT32_MAX - 1);
+TimerPeripheral::InitData init_data_timer23(TIM23, true, 275, UINT32_MAX - 1);
 
 TimerPeripheral timer1(&htim1, init_data_timer1, "TIM 1");
 TimerPeripheral timer2(&htim2, init_data_timer2, "TIM 2");
