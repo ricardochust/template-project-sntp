@@ -8,7 +8,7 @@
 
 #include "ST-LIB.hpp"
 
-void time_example(){
+void low_time_example(){
 	UART::set_up_printf(UART::uart2);
 
 	Pin::start();

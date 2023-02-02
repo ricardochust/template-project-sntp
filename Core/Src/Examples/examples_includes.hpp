@@ -5,6 +5,8 @@
 #include "exti_example.hpp"
 #include "clock_example.hpp"
 #include "low_time_example.hpp"
+#include "high_time_example.hpp"
 #include "state_example.hpp"
 #include "can_example.hpp"
 #include "pwm_example.hpp"
+#include "halfbridge_example.hpp"
