@@ -10,3 +10,4 @@
 #include "can_example.hpp"
 #include "pwm_example.hpp"
 #include "halfbridge_example.hpp"
+#include "i2c_example.hpp"

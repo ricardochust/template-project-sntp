@@ -9,8 +9,8 @@ extern struct netif gnetif;
 
 int main(void)
 {
-
-	while(1) {
+  i2c_example();
+  while(1) {
 
 	}
 }
