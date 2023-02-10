@@ -29,10 +29,6 @@ extern DMA_HandleTypeDef hdma_adc2;
 
 extern DMA_HandleTypeDef hdma_adc3;
 
-extern DMA_HandleTypeDef hdma_i2c2_rx;
-
-extern DMA_HandleTypeDef hdma_i2c2_tx;
-
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN TD */
 
@@ -623,44 +619,6 @@ void HAL_I2C_MspInit(I2C_HandleTypeDef* hi2c)
 
     /* Peripheral clock enable */
     __HAL_RCC_I2C2_CLK_ENABLE();
-
-    /* I2C2 DMA Init */
-    /* I2C2_RX Init */
-    hdma_i2c2_rx.Instance = DMA1_Stream3;
-    hdma_i2c2_rx.Init.Request = DMA_REQUEST_I2C2_RX;
-    hdma_i2c2_rx.Init.Direction = DMA_PERIPH_TO_MEMORY;
-    hdma_i2c2_rx.Init.PeriphInc = DMA_PINC_DISABLE;
-    hdma_i2c2_rx.Init.MemInc = DMA_MINC_ENABLE;
-    hdma_i2c2_rx.Init.PeriphDataAlignment = DMA_PDATAALIGN_WORD;
-    hdma_i2c2_rx.Init.MemDataAlignment = DMA_MDATAALIGN_WORD;
-    hdma_i2c2_rx.Init.Mode = DMA_CIRCULAR;
-    hdma_i2c2_rx.Init.Priority = DMA_PRIORITY_LOW;
-    hdma_i2c2_rx.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
-    if (HAL_DMA_Init(&hdma_i2c2_rx) != HAL_OK)
-    {
-      Error_Handler();
-    }
-
-    __HAL_LINKDMA(hi2c,hdmarx,hdma_i2c2_rx);
-
-    /* I2C2_TX Init */
-    hdma_i2c2_tx.Instance = DMA1_Stream4;
-    hdma_i2c2_tx.Init.Request = DMA_REQUEST_I2C2_TX;
-    hdma_i2c2_tx.Init.Direction = DMA_MEMORY_TO_PERIPH;
-    hdma_i2c2_tx.Init.PeriphInc = DMA_PINC_DISABLE;
-    hdma_i2c2_tx.Init.MemInc = DMA_MINC_ENABLE;
-    hdma_i2c2_tx.Init.PeriphDataAlignment = DMA_PDATAALIGN_WORD;
-    hdma_i2c2_tx.Init.MemDataAlignment = DMA_MDATAALIGN_WORD;
-    hdma_i2c2_tx.Init.Mode = DMA_CIRCULAR;
-    hdma_i2c2_tx.Init.Priority = DMA_PRIORITY_LOW;
-    hdma_i2c2_tx.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
-    if (HAL_DMA_Init(&hdma_i2c2_tx) != HAL_OK)
-    {
-      Error_Handler();
-    }
-
-    __HAL_LINKDMA(hi2c,hdmatx,hdma_i2c2_tx);
-
   /* USER CODE BEGIN I2C2_MspInit 1 */
 
   /* USER CODE END I2C2_MspInit 1 */
@@ -692,9 +650,6 @@ void HAL_I2C_MspDeInit(I2C_HandleTypeDef* hi2c)
 
     HAL_GPIO_DeInit(GPIOB, GPIO_PIN_11);
 
-    /* I2C2 DMA DeInit */
-    HAL_DMA_DeInit(hi2c->hdmarx);
-    HAL_DMA_DeInit(hi2c->hdmatx);
   /* USER CODE BEGIN I2C2_MspDeInit 1 */
 
   /* USER CODE END I2C2_MspDeInit 1 */
@@ -1106,17 +1061,6 @@ void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* htim_base)
   /* USER CODE END TIM17_MspInit 0 */
     /* Peripheral clock enable */
     __HAL_RCC_TIM17_CLK_ENABLE();
-  /* USER CODE BEGIN TIM17_MspInit 1 */
-
-  /* USER CODE END TIM17_MspInit 1 */
-  }
-  else if(htim_base->Instance==TIM23)
-  {
-  /* USER CODE BEGIN TIM17_MspInit 0 */
-
-  /* USER CODE END TIM17_MspInit 0 */
-    /* Peripheral clock enable */
-    __HAL_RCC_TIM23_CLK_ENABLE();
   /* USER CODE BEGIN TIM17_MspInit 1 */
 
   /* USER CODE END TIM17_MspInit 1 */

@@ -17,7 +17,7 @@ int i2c_example(void)
 	printf("\n\n\n\n\n\n\n\n\n\n");
 
 	while (1) {
-		I2C::transmit_next_packet(id, paquete);
+		I2C::transmit_next_packet_polling(id, paquete);
 		ErrorHandlerModel::ErrorHandlerUpdate();
 	}
 }
