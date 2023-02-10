@@ -17,7 +17,12 @@ int i2c_example(void)
 	printf("\n\n\n\n\n\n\n\n\n\n");
 
 	while (1) {
-		I2C::transmit_next_packet_polling(id, paquete);
+		if(!I2C::is_busy(id)){
+			I2C::transmit_next_packet(id, paquete);
+		}else{
+			printf("i m busy");
+			HAL_Delay(100);
+		}
 		ErrorHandlerModel::ErrorHandlerUpdate();
 	}
 }

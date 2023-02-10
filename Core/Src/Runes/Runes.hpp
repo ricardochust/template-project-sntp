@@ -27,6 +27,8 @@ UART_HandleTypeDef huart1;
 UART_HandleTypeDef huart2;
 UART_HandleTypeDef huart3;
 SPI_HandleTypeDef hspi3;
+DMA_HandleTypeDef hdma_i2c2_rx;
+DMA_HandleTypeDef hdma_i2c2_tx;
 I2C_HandleTypeDef hi2c2;
 FDCAN_HandleTypeDef hfdcan1;
 
@@ -105,7 +107,7 @@ bool UART::printf_ready = false;
  ***********************************************/
 #ifdef HAL_I2C_MODULE_ENABLED
 
-I2C::Instance I2C::instance2 = { .SCL = PF1, .SDA = PB11, .hi2c = &hi2c2, .instance = I2C2};
+I2C::Instance I2C::instance2 = { .SCL = PF1, .SDA = PB11, .hi2c = &hi2c2, .instance = I2C2, .RX_DMA = DMA::Stream::DMA1Stream3, .TX_DMA = DMA::Stream::DMA1Stream4};
 
 I2C::Peripheral I2C::i2c2 = I2C::Peripheral::peripheral2;
 
