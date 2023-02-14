@@ -10,7 +10,7 @@
 
 int i2c_example(void)
 {
-	uint8_t id = I2C::inscribe(I2C::i2c2).value_or(69);
+	uint8_t id = I2C::inscribe(I2C::i2c2,2).value_or(69);
 	STLIB::start(Nucleo);
 	I2C::start();
 	uint8_t buf[4];
@@ -24,17 +24,15 @@ int i2c_example(void)
 	while (1) {
 		if(!I2C::is_busy(id)){
 			if(I2C::transmit_next_packet(id, paquete)){
-				while(!I2C::has_next_packet(id)){
+				while(I2C::is_busy(id)){
 
 				}
-				if(I2C::receive_next_packet(id, paquete)){
-					printf("done");
+				if(I2C::has_next_packet(id)){
+					if(I2C::receive_next_packet(id, paquete)){
+						printf("done \n");
+					}
 				}
-
 			}
-		}else{
-			printf("i m busy");
-			HAL_Delay(100);
 		}
 		ErrorHandlerModel::ErrorHandlerUpdate();
 	}
