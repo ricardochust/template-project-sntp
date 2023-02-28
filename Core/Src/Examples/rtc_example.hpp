@@ -18,5 +18,6 @@ int rtc_example(void){
 	while(1){
 		//Time::rtc_data now = Time::get_RTC_data();
 		//printf("%d:%d:%d::%d  %d-%d-%d \n",now.hour,now.minute,now.second,now.counter,now.day,now.month,now.year);
+		HAL_Delay(100);
 	}
 }
