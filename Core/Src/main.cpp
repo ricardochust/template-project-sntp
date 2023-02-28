@@ -9,7 +9,7 @@ extern struct netif gnetif;
 
 int main(void)
 {
-	low_time_example();
+	rtc_example();
 	while(1) {
 
 	}
