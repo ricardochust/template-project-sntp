@@ -46,10 +46,23 @@
  * @{
  */
 
-static void set_rtc_time(uint32_t sec, uint32_t us);
+static void set_time(uint32_t sec, uint32_t us);
+static void set_rtc(uint16_t counter, uint8_t second, uint8_t minute, uint8_t hour, uint8_t day, uint8_t month, uint8_t year);
 
 #define SNTP_STARTUP_DELAY 0
-#define SNTP_SET_SYSTEM_TIME_US(sec,us) set_rtc_time(sec,us)
+#define SNTP_SET_SYSTEM_TIME_US(sec,us) set_time(sec,us)
+#define SUBSECONDS_PER_SECOND 32767
+
+void set_time(uint32_t sec, uint32_t us){
+	struct timeval tv;
+	tv.tv_sec = sec;
+	tv.tv_usec = us;
+	struct tm *nowtm = localtime(sec);
+	uint32_t subsecond = (uint32_t)((1.0/999999) * tv.tv_usec * SUBSECONDS_PER_SECOND);
+	set_rtc(subsecond, nowtm->tm_sec, nowtm->tm_min, nowtm->tm_hour, nowtm->tm_mday, nowtm->tm_mon, nowtm->tm_year);
+}
+
+//void set_rtc(uint16_t counter, uint8_t second, uint8_t minute, uint8_t hour, uint8_t day, uint8_t month, uint8_t year){}
 
 /** SNTP macro to change system time in seconds
  * Define SNTP_SET_SYSTEM_TIME_US(sec, us) to set the time in microseconds
