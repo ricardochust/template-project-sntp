@@ -60,7 +60,7 @@ void set_time(uint32_t sec, uint32_t us){
 	tv.tv_sec = sec;
 	tv.tv_usec = us;
 	time_t nowtime = sec;
-	struct tm *nowtm = localtime(sec);
+	struct tm *nowtm = localtime(&nowtime);
 	uint32_t subsecond = (uint32_t)((1.0/999999) * tv.tv_usec * SUBSECONDS_PER_SECOND);
 	set_rtc(subsecond, nowtm->tm_sec, nowtm->tm_min, nowtm->tm_hour, nowtm->tm_mday, nowtm->tm_mon, nowtm->tm_year);
 }
