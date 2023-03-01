@@ -45,6 +45,7 @@
  * @ingroup sntp
  * @{
  */
+#define SNTP_STARTUP_DELAY 0
 
 /** SNTP macro to change system time in seconds
  * Define SNTP_SET_SYSTEM_TIME_US(sec, us) to set the time in microseconds
