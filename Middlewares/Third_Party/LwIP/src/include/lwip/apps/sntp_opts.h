@@ -45,7 +45,11 @@
  * @ingroup sntp
  * @{
  */
+
+static void set_rtc_time(uint32_t sec, uint32_t us);
+
 #define SNTP_STARTUP_DELAY 0
+#define SNTP_SET_SYSTEM_TIME_US(sec,us) set_rtc_time(sec,us)
 
 /** SNTP macro to change system time in seconds
  * Define SNTP_SET_SYSTEM_TIME_US(sec, us) to set the time in microseconds
