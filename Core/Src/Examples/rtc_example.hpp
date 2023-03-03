@@ -23,15 +23,13 @@ int rtc_example(void){
 	Packet<uint16_t> dpacket(dpacketvalue);
 	dsocket.send(dpacket);
 
-
 	SNTP::sntp_update(192,168,1,3);
 
-	Time::set_RTC_data(0,30,20,10,28,2,2023);
 	printf("\n\n\n\n\n\n\n\n\n\n");
 	while(1){
 		STLIB::update();
-		//Time::rtc_data now = Time::get_RTC_data();
-		//printf("%d:%d:%d::%d  %d-%d-%d \n",now.hour,now.minute,now.second,now.counter,now.day,now.month,now.year);
+		Time::rtc_data now = Time::get_RTC_data();
+		printf("%u:%u:%u::%u  %u-%u-%u \n",now.hour,now.minute,now.second,now.counter,now.day,now.month,now.year);
 		//HAL_Delay(1000);
 	}
 }
