@@ -28,7 +28,7 @@ int rtc_example(void){
 	printf("\n\n\n\n\n\n\n\n\n\n");
 	while(1){
 		STLIB::update();
-		Time::rtc_data now = Time::get_RTC_data();
+		Time::RTCData now = Time::get_rtc_data();
 		printf("%u:%u:%u::%u  %u-%u-%u \n",now.hour,now.minute,now.second,now.counter,now.day,now.month,now.year);
 		//HAL_Delay(1000);
 	}
